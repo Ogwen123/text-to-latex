@@ -1,8 +1,14 @@
+import subprocess
+
 map = {
     "¬": "\\neg ",
     "∨": "\\vee ",
     "∧": "\\land ",
-    "→": "\\implies "
+    "→": "\\implies ",
+    "∀": "\\forall ",
+    "Z": "\\mathbf{Z} ",
+    "∈": "\\in ",
+    "∃": "\\exists "
 }
 
 while True:
@@ -14,4 +20,6 @@ while True:
             buffer += map[letter]
         else:
             buffer += letter
-    print(f"${buffer}$")
+    buffer = f"${buffer}$"
+    print(buffer)
+    subprocess.run(['clip.exe'], input=buffer.encode('UTF-16LE'), check=True)
